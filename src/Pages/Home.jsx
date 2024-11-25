@@ -6,6 +6,8 @@ import Cards from '../Components/Cards/Cards';
 import PromotionBlock from '../Components/PromotionBlock/PromotionBlock';
 import Footer from '../Components/Footer/Footer';
 import { useDispatch } from 'react-redux';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../Auth/Firebase';
 const Home = () => {
   const dispatch = useDispatch()
   const fetchData=async()=>{
@@ -23,6 +25,13 @@ const Home = () => {
 }
 useEffect(()=>{
   fetchData()
+  onAuthStateChanged(auth, (user) => {
+      if (!user) {
+          navigate('/home')
+      }
+    });
+})
+useEffect(()=>{
 },[])
   return (
     <>
