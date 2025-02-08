@@ -7,13 +7,13 @@ export const AddToCartReducer = (state = InitialState, { type, payload }) => {
         case 'cart':
             return {
                 ...state,
-                Cart: [...state.Cart, payload], // Fixed unnecessary spread
+                Cart: [...state.Cart, payload], 
             };
 
         case 'remove':
             return {
                 ...state,
-                Cart: state.Cart.filter((item) => item.id !== payload.id), // Simplified removal logic
+                Cart: state.Cart.filter((item) => item.id !== payload.id), 
             };
 
         default:
