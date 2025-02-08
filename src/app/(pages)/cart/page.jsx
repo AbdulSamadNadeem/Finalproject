@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { CiStar, CiCircleRemove } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import AOS from "aos";
