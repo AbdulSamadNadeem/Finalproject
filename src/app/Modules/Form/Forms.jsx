@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook } from "react-icons/fa";
@@ -10,10 +10,13 @@ import {
   provider,
   signInWithEmailAndPassword,
   signInWithPopup,
+  GoogleAuthProvider, // Importing GoogleAuthProvider
 } from "../../../Auth/Firebase";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import PropTypes from "prop-types"; // Import PropTypes
+
 const Forms = ({ data }) => {
   const router = useRouter();
   let num;
@@ -38,8 +41,6 @@ const Forms = ({ data }) => {
     } catch (err) {
       toast.error(err.message);
     }
-
-    // ...
   };
 
   const GoogleAuth = () => {
@@ -49,11 +50,11 @@ const Forms = ({ data }) => {
         toast.success("SignUp Successfully");
       })
       .catch((error) => {
+        // Handling errors
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
       });
   };
 
@@ -66,6 +67,7 @@ const Forms = ({ data }) => {
       num = 1;
     }
   };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -73,6 +75,7 @@ const Forms = ({ data }) => {
       }
     });
   });
+
   return (
     <>
       <div className="bg-[#6358DC] flex">
@@ -91,7 +94,6 @@ const Forms = ({ data }) => {
             </h1>
           </div>
           <div className="flex flex-col gap-6">
-          
             <button
               className="flex  justify-center items-center w-96 text-2xl font-light border gap-2 border-black rounded-lg transition-transform hover:scale-105 duration-200"
               onClick={GoogleAuth}
@@ -139,6 +141,13 @@ const Forms = ({ data }) => {
       <ToastContainer />
     </>
   );
+};
+
+Forms.propTypes = {
+  data: PropTypes.shape({
+    login: PropTypes.string,
+    signup: PropTypes.string,
+  }).isRequired,
 };
 
 export default Forms;
