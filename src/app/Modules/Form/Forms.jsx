@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
