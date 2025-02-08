@@ -1,5 +1,4 @@
 "use client"
-import { useNavigate } from 'react-router';
 import { auth, signOut} from '../../../Auth/Firebase';
 import { useRouter } from 'next/navigation';
 const Page = () => {
