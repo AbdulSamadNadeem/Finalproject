@@ -2,7 +2,7 @@
 import React from "react";
 import Forms from "../../Modules/Form/Forms";
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <Forms data={{ signup: "Signup" }} />
@@ -10,4 +10,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
