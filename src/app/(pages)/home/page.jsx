@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Header from "../../Modules/Header/Header";
 import Banner from "../../Modules/Banner/Banner";
 import "animate.css";
