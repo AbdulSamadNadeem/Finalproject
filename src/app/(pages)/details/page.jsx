@@ -1,5 +1,4 @@
 "use client"
-import React from "react";
 import Header from "../../Modules/Header/Header";
 import ProductDetail from "../../Modules/ProductDetail/ProductDetail";
 import Cards from "../../Modules/Cards/Cards";
