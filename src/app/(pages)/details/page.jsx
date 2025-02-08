@@ -5,7 +5,7 @@ import ProductDetail from "../../Modules/ProductDetail/ProductDetail";
 import Cards from "../../Modules/Cards/Cards";
 import Footer from "../../Modules/Footer/Footer";
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <div className="bg-black h-10 animate__animated animate__fadeInDown">
@@ -25,4 +25,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
