@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import { FaFacebook } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
