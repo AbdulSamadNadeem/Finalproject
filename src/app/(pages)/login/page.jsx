@@ -4,7 +4,7 @@ import Forms from "../../Modules/Form/Forms";
 import { auth, onAuthStateChanged } from "../../../Auth/Firebase";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -20,4 +20,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
