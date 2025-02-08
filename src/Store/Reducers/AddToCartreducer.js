@@ -1,28 +1,22 @@
 const InitialState = {
-    Cart:[],
-}
+    Cart: [],
+};
 
-
-export const AddToCartReducer = (state=InitialState , {type, payload})=>{
-
-     switch(type){
+export const AddToCartReducer = (state = InitialState, { type, payload }) => {
+    switch (type) {
         case 'cart':
-            return{
-                ...state , Cart:[...state.Cart , ...[payload]]
-            }
-      
+            return {
+                ...state,
+                Cart: [...state.Cart, payload], // Fixed unnecessary spread
+            };
+
         case 'remove':
-            const index = state.Cart.findIndex((item)=> item.id === payload.id)
-            if(index !== -1){
-                const updatedArray = [...state.Cart]
-                updatedArray.splice(index , 1)
-                return{
-                 ...state , Cart:updatedArray
-                   }  
-                }
-                return state    
+            return {
+                ...state,
+                Cart: state.Cart.filter((item) => item.id !== payload.id), // Simplified removal logic
+            };
 
-    default:
-        return state
-
-}}
+        default:
+            return state;
+    }
+};
