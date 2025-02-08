@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import { auth, signOut} from '../../../Auth/Firebase';
 import { useRouter } from 'next/navigation';
-const page = () => {
+const Page = () => {
    const router = useRouter();
     const Logout =()=>{
         signOut(auth).then(() => {
@@ -22,4 +22,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
