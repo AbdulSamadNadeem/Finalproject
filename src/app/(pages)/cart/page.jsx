@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AOS from "aos";
 import Header from "../../Modules/Header/Header";
 import Footer from "../../Modules/Footer/Footer";
-const page = () => {
+const Page = () => {
   const Data = useSelector((state) => state.CartReducer.Cart);
   const dispatch = useDispatch();
 
@@ -88,4 +88,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
