@@ -11,7 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../Auth/Firebase";
 import { useRouter } from "next/navigation";
 import { fetchSanity } from "../../../API/axiosinstance";
-const page = () => {
+const Page = () => {
   const router = useRouter()
   const dispatch = useDispatch();
   const fetchData = async () => {
@@ -64,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
