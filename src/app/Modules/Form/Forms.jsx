@@ -1,7 +1,6 @@
 "use client";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { BiShow } from "react-icons/bi";
 import {
@@ -19,13 +18,9 @@ import PropTypes from "prop-types"; // Import PropTypes
 
 const Forms = ({ data }) => {
   const router = useRouter();
-  let num;
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
-    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -45,27 +40,17 @@ const Forms = ({ data }) => {
 
   const GoogleAuth = () => {
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
+      .then(() => {
         toast.success("SignUp Successfully");
       })
       .catch((error) => {
-        // Handling errors
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        toast.error(error.message);
       });
   };
 
   const showPass = () => {
-    if (num === 1) {
-      document.getElementById("pass").type = "text";
-      num = 0;
-    } else {
-      document.getElementById("pass").type = "password";
-      num = 1;
-    }
+    const passField = document.getElementById("pass");
+    passField.type = passField.type === "password" ? "text" : "password";
   };
 
   useEffect(() => {
@@ -74,7 +59,7 @@ const Forms = ({ data }) => {
         router.push("/login");
       }
     });
-  });
+  }, [router]);
 
   return (
     <>
